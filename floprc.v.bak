@@ -1,0 +1,4 @@
+module floprc(#parameter M=8)(input clk,input reset,input clear,
+										input [M-1:0]d,output [M-1:0] q);
+										
+endmodule

@@ -1,0 +1,23 @@
+module Main(input clk,input reset);
+
+	parameter WIDTH=32,INST_WIDTH=32,REG_COUNT_BITS=5;
+	
+	wire [WIDTH-1:0] pc;
+	wire [INST_WIDTH-1:0] inst;
+	wire [WIDTH-1:0] addr;
+	wire [WIDTH-1:0] read_data;
+	
+	mips #(WIDTH,INST_WIDTH,REG_COUNT_BITS)mips(.clk(clk),
+															  .reset(reset),
+															  .pc(pc),
+															  .inst(inst),
+															  .alu_result(addr),
+															  .read_data(read_data));
+	imem imem(.addr(pc),.rd(inst));
+	
+	dmem dmem(.clk(clk),.addr(addr),.rd(read_data));
+
+endmodule
+
+module main_tb;
+

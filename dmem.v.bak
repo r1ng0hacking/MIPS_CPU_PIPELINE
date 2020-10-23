@@ -1,0 +1,1 @@
+module dmem#(M=32)(input clk,input we,input)

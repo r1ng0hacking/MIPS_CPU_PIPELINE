@@ -1,0 +1,4 @@
+module flopenrc(#parameter M=8)(input clk,input reset,input clear,input en
+										input [M-1:0]d,output reg [M-1:0] q);
+										
+endmodule
